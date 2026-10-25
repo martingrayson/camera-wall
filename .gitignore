@@ -1,0 +1,8 @@
+# Private: Home Assistant base URL + long-lived token + camera list
+config.js
+# Build artifacts
+.buildResult/
+signed*/
+*.wgt
+.pkgid
+.DS_Store

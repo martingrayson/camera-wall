@@ -1,0 +1,12 @@
+Samsung TV Extension archive (for older 2017-era TVs) — macOS installer is one of the 5 file links per version.
+Source: https://developer.samsung.com/smarttv/develop/tools/tv-extension/archive.html
+
+3.1.2 : https://developer.samsung.com/smarttv/file/655cc851-b52b-447f-990b-701caf51cfb0
+        https://developer.samsung.com/smarttv/file/62998d60-1d8d-45f5-ba4b-b1d7f7fd535a
+        https://developer.samsung.com/smarttv/file/b5642b6f-bccd-4429-8cd9-43781a5bd1fe
+        https://developer.samsung.com/smarttv/file/4c056adb-8ab9-4123-863f-6f00e0be1923
+        https://developer.samsung.com/smarttv/file/c82d95bc-fc57-40c8-b3ad-f72cc3182ee2
+4.0   : https://developer.samsung.com/smarttv/file/a990468d-c20c-4066-b04a-41aafedde189  (+4 more)
+4.0.1 : https://developer.samsung.com/smarttv/file/615727fe-9cb1-46c3-a099-7dd72b5538af  (+4 more)
+Note: 2017 TVs = Tizen 3.0 platform; 3.1.2 (2017) or 4.0 (2018) extension are the candidates.
+Pending: parallel research on whether an old TV extension / specific cert gets past install[118].
