@@ -124,13 +124,31 @@ a couple of seconds and need no restart.
 
 ## Icons (Apps list + home dock)
 
-Samsung web apps use a **single** icon file (`<icon src="icon.png"/>`); **SVG is not supported**.
-The TV auto-generates the Apps-list icon, the 250×250 panel icon, and the home-dock tile from that
-one `icon.png`. Use a **512×512 PNG**.
+Samsung web apps use a **single** icon file (`<icon src="icon.png"/>`); **SVG is not supported**,
+and extra `<icon>` entries with width/height are **ignored** — the TV scales the one `icon.png`
+to every placement. Use a **512-px PNG**.
 
-Regenerate `icon.png` from a source image (macOS):
+**The dock-tile shape differs by TV generation**, and the TV *stretches* the single icon to fit,
+so no one image is right everywhere:
+
+| Placement | Shape |
+| --- | --- |
+| Apps list / panel | **square** (1:1, 250×250) — same on all generations |
+| Home-dock tile, **modern TVs** (2021+, e.g. QE50QE1D) | **square** (1:1) |
+| Home-dock tile, **2017-era TVs** (Tizen 3.0/4.0, e.g. UE55MU7000) | **16:9** (245×138) |
+
+So pick the icon by the target TV's dock shape. This repo ships both:
+- `icon.png` — **square**, the default (right for the Apps list on every TV, and the home dock on
+  modern/2021+ TVs).
+- `icon-wide.png` — **16:9**, for the home dock on **2017-era** TVs.
+
+Before building **for a 2017-era TV**, swap in the wide one: `cp icon-wide.png icon.png`.
+(On a modern TV the square `icon.png` is already correct — no swap.)
+
+Regenerate either from a source image (macOS `sips`):
 ```bash
-sips -s format png -z 512 512 source.png --out icon.png     # (webp/jpg/png all work)
+sips -s format png -z 512 512 source.png --out icon.png                 # square (-z = resize, may distort non-square sources; crop first with -c)
+sips -s format png -z 288 512 source16x9.png --out icon-wide.png        # 16:9 (512×288)
 ```
 
 **Dock icon won't update?** The TV caches the home-dock tile from the *first* install. Installing
